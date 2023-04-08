@@ -1,8 +1,8 @@
 import boto3
 
 # IAM Credentials
-access_key = 'AKIAWNVPEYV5ZXT4HVPW'
-secret_key = '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'
+access_key = ''
+secret_key = ''
 
 
 # Region
