@@ -1,15 +1,13 @@
 import boto3
 
 # IAM Credentials
-access_key = "$AWS_ACCESS_KEY_ID"
-secret_key = "$AWS_SECRET_ACCESS_KEY"
+# access_key = "$AWS_ACCESS_KEY_ID"
+# secret_key = "$AWS_SECRET_ACCESS_KEY"
+
+access_key = "AKIAWNVPEYV5TY2Q52IN"
+secret_key = "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"
 
 
-# Region
-#REGION = 'eu-west-1'
-#region = 'eu-west-1'
-
-import boto3
 
 # Create a boto3 session using IAM user's access key and secret key
 session = boto3.Session(
