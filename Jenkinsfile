@@ -17,7 +17,7 @@ pipeline {
        stage('aws1') {
 
            steps {
-                withCredentials([usernamePassword(credentialsId: 'áws-cred', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                withCredentials([usernamePassword(credentialsId: 'aws-cred', accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     sh 'echo $AWS_ACCESS_KEY_ID'
                     sh 'echo $AWS_SECRET_ACCESS_KEY'
                 }
