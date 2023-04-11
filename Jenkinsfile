@@ -35,8 +35,8 @@ pipeline {
                         sh 'pwd'
     	                sh 'ls -l'
                         
-                        sh 'docker build -t arik12/project1::${BUILD_NUMBER} .'
-                        sh 'docker run -t arik12/project1::${BUILD_NUMBER}'
+                        sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
+                        sh 'docker run -t arik12/project1:${BUILD_NUMBER}'
 
                        // sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
                     }
