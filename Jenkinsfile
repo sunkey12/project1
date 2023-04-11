@@ -27,6 +27,8 @@ pipeline {
         stage('RunDockerFile') {
             steps {
                 script {
+                    sh 'pwd'
+                    sh 'ls -l'
                     sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
                 }
                 echo 'Hello World'   
