@@ -30,7 +30,7 @@ pipeline {
                     sh 'pwd'
                     sh 'ls -l'
                     sh 'docker --version'
-                    sh '${BUILD_NUMBER}'
+                    sh  'echo ${BUILD_NUMBER}'
                     dir('project1') {
                         sh 'pwd'
     	                sh 'ls -l'
