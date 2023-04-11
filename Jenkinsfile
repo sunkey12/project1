@@ -29,11 +29,15 @@ pipeline {
                 script {
                     sh 'pwd'
                     sh 'ls -l'
-                    
+                    sh 'docker --version'
+                    sh '${BUILD_NUMBER}'
                     dir('project1') {
                         sh 'pwd'
     	                sh 'ls -l'
-                        sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
+                        
+                        sh 'docker build -t arik12/project1:chenged1 .'
+
+                       // sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
                     }
                 }
                 echo 'Hello World'   
