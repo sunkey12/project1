@@ -23,6 +23,15 @@ pipeline {
                 }
             }
         }
+        
+        stage('RunDockerFile') {
+            steps {
+                script {
+                    sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
+                }
+                echo 'Hello World'   
+            }
+        }
       
       
         stage('Hello') {
