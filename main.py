@@ -1,7 +1,7 @@
 import boto3
 
 # IAM Credentials
-access_key = ''
+access_key = $AWS_ACCESS_KEY_ID
 secret_key = ''
 
 
