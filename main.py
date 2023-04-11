@@ -4,8 +4,8 @@ import boto3
 # access_key = "$AWS_ACCESS_KEY_ID"
 # secret_key = "$AWS_SECRET_ACCESS_KEY"
 
-access_key = "AKIAWNVPEYV5TY2Q52IN"
-secret_key = "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"
+access_key = ""
+secret_key = ""
 
 
 
