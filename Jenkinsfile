@@ -31,8 +31,8 @@ pipeline {
                     sh 'ls -l'
                     
                     dir('project1') {
-                        sh ''pwd'
-    	                sh ''ls -l'
+                        sh 'pwd'
+    	                sh 'ls -l'
                         sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
                     }
                 }
