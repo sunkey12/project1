@@ -23,7 +23,7 @@ pipeline {
                     sh 'echo $AWS_SECRET_ACCESS_KEY'  
                 }
             }
-        }
+       
         
         stage('RunDockerFile') {
             steps {
