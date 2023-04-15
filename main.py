@@ -25,7 +25,7 @@ response = ec2_client.describe_instances()
 print("2")
 # Loop through all instances and check if they are running
 for reservation in response['Reservations']:
-      print("3")
+    print("3")
     for instance in reservation['Instances']:
         if instance['State']['Name'] == 'stopped':
             print(f"Instance {instance['InstanceId']} is stopped")
