@@ -5,8 +5,8 @@ import os
 #  access_key = $AWS_ACCESS_KEY_ID
 #  secret_key = $AWS_SECRET_ACCESS_KEY
 
- access_key = os.environ('AWS_ACCESS_KEY_ID')
- secret_key = os.environ('AWS_SECRET_ACCESS_KEY')
+access_key = os.environ('AWS_ACCESS_KEY_ID')
+secret_key = os.environ('AWS_SECRET_ACCESS_KEY')
 
 
 
