@@ -22,7 +22,7 @@ pipeline {
                       sh 'echo $AWS_ACCESS_KEY_ID'
                       sh 'echo $AWS_SECRET_ACCESS_KEY'  
                       sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
-                      sh 'docker run -t -e arik12/project1:${BUILD_NUMBER}'
+                      sh 'docker run -t -e access_key=$AWS_ACCESS_KEY_ID -e secret_key=$AWS_SECRET_ACCESS_KEY arik12/project1:${BUILD_NUMBER}'
                 }
             }
        }
