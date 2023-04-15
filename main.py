@@ -22,7 +22,7 @@ ec2_client = session.client('ec2')
 
 # Check the status of all EC2 instances
 response = ec2_client.describe_instances()
-print("2')
+print("2")
 # Loop through all instances and check if they are running
 for reservation in response['Reservations']:
       print("3")
