@@ -21,29 +21,31 @@ pipeline {
                  withCredentials([usernamePassword(credentialsId: 'aws-cred', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
                       sh 'echo $AWS_ACCESS_KEY_ID'
                       sh 'echo $AWS_SECRET_ACCESS_KEY'  
-                      sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
-                      sh 'docker run -t -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY arik12/project1:${BUILD_NUMBER}'
+                      dir('project1') {
+                        sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
+                        sh 'docker run -t -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY arik12/project1:${BUILD_NUMBER}'
+                      }
                 }
             }
        }
         
-        stage('RunDockerFile') {
-            steps {
-                script {
-                    sh 'pwd'
-                    sh 'ls -l'
-                    sh 'docker --version'
-                    sh  'echo ${BUILD_NUMBER}'
-                    dir('project1') {
-                        sh 'pwd'
-    	                sh 'ls -l'
+//         stage('RunDockerFile') {
+//             steps {
+//                 script {
+//                     sh 'pwd'
+//                     sh 'ls -l'
+//                     sh 'docker --version'
+//                     sh  'echo ${BUILD_NUMBER}'
+//                     dir('project1') {
+//                         sh 'pwd'
+//     	                sh 'ls -l'
                         
-//                         sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
-//                         sh 'docker run -t arik12/project1:${BUILD_NUMBER}'
+// //                         sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
+// //                         sh 'docker run -t arik12/project1:${BUILD_NUMBER}'
 
-                       // sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
-                    }
-                }
+//                        // sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
+//                     }
+//                 }
                 echo 'Hello World'   
             }
         }
