@@ -17,7 +17,7 @@ pipeline {
 
        stage('aws2') {
             steps {
-                  withAWS(credentials: 'aws-cred', region: 'eu-west-1')
+                  withCredentials(credentials: 'aws-cred', region: 'eu-west-1')
 //                withCredentials([usernamePassword(credentialsId: 'aws-cred', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
                     sh 'echo $AWS_ACCESS_KEY_ID'
                     sh 'echo $AWS_SECRET_ACCESS_KEY'  
