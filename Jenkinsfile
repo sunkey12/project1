@@ -21,6 +21,8 @@ pipeline {
                  withCredentials([usernamePassword(credentialsId: 'aws-cred', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
                       sh 'echo $AWS_ACCESS_KEY_ID'
                       sh 'echo $AWS_SECRET_ACCESS_KEY'  
+                      sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
+                      sh 'docker run -t -e arik12/project1:${BUILD_NUMBER}'
                 }
             }
        }
@@ -36,8 +38,8 @@ pipeline {
                         sh 'pwd'
     	                sh 'ls -l'
                         
-                        sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
-                        sh 'docker run -t arik12/project1:${BUILD_NUMBER}'
+//                         sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
+//                         sh 'docker run -t arik12/project1:${BUILD_NUMBER}'
 
                        // sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
                     }
