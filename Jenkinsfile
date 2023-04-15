@@ -46,9 +46,9 @@ pipeline {
 //                        // sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
 //                     }
 //                 }
-                echo 'Hello World'   
-            }
-        }
+//                 echo 'Hello World'   
+//             }
+//         }
       
       
         stage('Hello') {
