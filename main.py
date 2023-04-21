@@ -2,10 +2,9 @@ import boto3
 import os
 
 # IAM Credentials
-# access_key = os.environ['AWS_ACCESS_KEY_ID']
-# secret_key = os.environ['AWS_SECRET_ACCESS_KEY']
-access_key = 'AKIAWNVPEYV5TAYOOGGH'
-secret_key = '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'
+access_key = os.environ['AWS_ACCESS_KEY_ID']
+secret_key = os.environ['AWS_SECRET_ACCESS_KEY']
+
 
 print(access_key)
 print(secret_key)
