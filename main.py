@@ -6,14 +6,12 @@ access_key = os.environ['AWS_ACCESS_KEY_ID']
 secret_key = os.environ['AWS_SECRET_ACCESS_KEY']
 
 
-print(access_key)
-print(secret_key)
 
 # Create a boto3 session using IAM user's access key and secret key
 session = boto3.Session(
     aws_access_key_id=access_key,
     aws_secret_access_key=secret_key,
-    region_name='eu-west-1'
+    region_name='us-east-1'
 )
 
 # Create an EC2 client using the session
