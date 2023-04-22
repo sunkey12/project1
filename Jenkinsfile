@@ -36,7 +36,7 @@ pipeline {
                       sh 'echo $DOCKERHUB_USERNAME'  
                    sh 'docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD} https://index.docker.io/v1/'
                sh 'pwd'
-               sh 'docker push -t arik12/project1:${BUILD_NUMBER}
+               sh 'docker push -t arik12/project1:${BUILD_NUMBER}'
             }  
 //         stage('RunDockerFile') {
 //             steps {
