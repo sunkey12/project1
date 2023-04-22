@@ -39,7 +39,7 @@ pipeline {
                }
 
                     
-                sh 'docker login -u ${env.dockeruser} -p ${env.dockerpassword}
+                sh 'docker login -u ${env.dockeruser} -p ${env.dockerpassword}'
                          sh 'pwd'
                          sh 'docker push -t arik12/project1:${BUILD_NUMBER}'
 
