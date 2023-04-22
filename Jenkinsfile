@@ -35,12 +35,12 @@ pipeline {
                       sh 'echo $DOCKERHUB_PASSWORD'
                       sh 'echo $DOCKERHUB_USERNAME'  
                }
-                script {
+//                 script {
                     
                          sh 'docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}'
                          sh 'pwd'
                          sh 'docker push -t arik12/project1:${BUILD_NUMBER}'
-                }  
+//                 }  
             }
        }    
         
