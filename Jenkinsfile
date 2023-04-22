@@ -29,7 +29,7 @@ pipeline {
             }
        }
         
-       stage('DockerloginPush') {
+       stage('Dockerlogin') {
             steps {
                withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                       sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
@@ -42,41 +42,18 @@ pipeline {
                     
 //                 sh 'docker login -u ${env.dockeruser} -p ${env.dockerpassword}'
                 
-                         sh 'pwd'
-                         sh 'docker push  arik12/project1:${BUILD_NUMBER}'
+//                          sh 'pwd'
+//                          sh 'docker push  arik12/project1:${BUILD_NUMBER}'
                        
+            }
+       }    
+       stage('DockerPush') {
+            steps { 
+                sh 'pwd'
+                sh 'docker push  arik12/project1:${BUILD_NUMBER}'
             }
        }    
         
     }
 }
-//         stage('RunDockerFile') {
-//             steps {
-//                 script {
-//                     sh 'pwd'
-//                     sh 'ls -l'
-//                     sh 'docker --version'
-//                     sh  'echo ${BUILD_NUMBER}'
-//                     dir('project1') {
-//                         sh 'pwd'
-//     	                sh 'ls -l'
-                        
-// //                         sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
-// //                         sh 'docker run -t arik12/project1:${BUILD_NUMBER}'
 
-//                        // sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
-//                     }
-//                 }
-//                 echo 'Hello World'   
-//             }
-//         }
-      
-      
-//         stage('Hello') {
-//             steps {
-//                 echo 'Hello World'
-//             }
-//         }
-//     }
-// }
-// }  
