@@ -34,13 +34,15 @@ pipeline {
                withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
                       sh 'echo $DOCKERHUB_PASSWORD'
                       sh 'echo $DOCKERHUB_USERNAME'  
+                    env.dockeruser = $DOCKERHUB_USERNAME
+                    env.dockerpassword = $DOCKERHUB_PASSWORD
                }
-//                 script {
+
                     
-                         sh 'docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}'
+                sh 'docker login -u ${env.dockeruser} -p ${env.dockerpassword}
                          sh 'pwd'
                          sh 'docker push -t arik12/project1:${BUILD_NUMBER}'
-//                 }  
+
             }
        }    
         
