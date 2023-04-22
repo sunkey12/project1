@@ -23,12 +23,21 @@ pipeline {
                       sh 'echo $AWS_SECRET_ACCESS_KEY'  
                       dir('project1') {
                         sh 'docker build -t arik12/project1:${BUILD_NUMBER} .'
-                        sh 'docker run -t -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY arik12/project1:${BUILD_NUMBER}'
+//                       sh 'docker run -t -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY arik12/project1:${BUILD_NUMBER}'
                       }
                 }
             }
        }
         
+       stage('DockerloginPush') {
+            steps {
+               withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
+                      sh 'echo $DOCKERHUB_PASSWORD'
+                      sh 'echo $DOCKERHUB_USERNAME'  
+                   sh 'docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD} https://index.docker.io/v1/
+               sh 'pwd'
+               sh 'docker push -t arik12/project1:${BUILD_NUMBER}
+            }  
 //         stage('RunDockerFile') {
 //             steps {
 //                 script {
