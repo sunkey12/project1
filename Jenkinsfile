@@ -37,7 +37,7 @@ pipeline {
                }
                 script {
                     
-                         sh 'docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD} https://index.docker.io/v1/'
+                         sh 'docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD} https://hub.docker.com'
                          sh 'pwd'
                          sh 'docker push -t arik12/project1:${BUILD_NUMBER}'
                 }  
