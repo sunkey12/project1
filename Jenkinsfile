@@ -32,17 +32,19 @@ pipeline {
        stage('DockerloginPush') {
             steps {
                withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
+                      sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
                       sh 'echo $DOCKERHUB_PASSWORD'
                       sh 'echo $DOCKERHUB_USERNAME'  
-                   env.dockeruser = ${DOCKERHUB_USERNAME}
-                   env.dockerpassword = ${DOCKERHUB_PASSWORD}
+//                env.dockeruser = ${DOCKERHUB_USERNAME}
+//                env.dockerpassword = ${DOCKERHUB_PASSWORD}
                }
 
                     
-                sh 'docker login -u ${env.dockeruser} -p ${env.dockerpassword}'
+//                 sh 'docker login -u ${env.dockeruser} -p ${env.dockerpassword}'
+                
                          sh 'pwd'
                          sh 'docker push -t arik12/project1:${BUILD_NUMBER}'
-
+                       
             }
        }    
         
