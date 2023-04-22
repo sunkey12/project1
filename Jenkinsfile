@@ -17,7 +17,6 @@ pipeline {
 
        stage('DockerBuild') {
             steps {  
-//                 withAWS(credentials: 'aws-cred', region: 'eu-west-1')
                  withCredentials([usernamePassword(credentialsId: 'aws-cred', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
                       sh 'echo $AWS_ACCESS_KEY_ID'
                       sh 'echo $AWS_SECRET_ACCESS_KEY'  
@@ -35,15 +34,8 @@ pipeline {
                       sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
                       sh 'echo $DOCKERHUB_PASSWORD'
                       sh 'echo $DOCKERHUB_USERNAME'  
-//                env.dockeruser = ${DOCKERHUB_USERNAME}
-//                env.dockerpassword = ${DOCKERHUB_PASSWORD}
-               }
 
-                    
-//                 sh 'docker login -u ${env.dockeruser} -p ${env.dockerpassword}'
-                
-//                          sh 'pwd'
-//                          sh 'docker push  arik12/project1:${BUILD_NUMBER}'
+               }
                        
             }
        }    
