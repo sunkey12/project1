@@ -34,8 +34,8 @@ pipeline {
                withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
                       sh 'echo $DOCKERHUB_PASSWORD'
                       sh 'echo $DOCKERHUB_USERNAME'  
-                    env.dockeruser = $DOCKERHUB_USERNAME
-                    env.dockerpassword = $DOCKERHUB_PASSWORD
+                   env.dockeruser = ${DOCKERHUB_USERNAME}
+                   env.dockerpassword = ${DOCKERHUB_PASSWORD}
                }
 
                     
