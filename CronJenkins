@@ -18,7 +18,7 @@
                 script {
                     def location = "/home/user/jenkins/jobs/dockerfile/builds/permalinks"
                     env.lastBuild = sh(script: "cat ${location} | grep lastSuccessfulBuild | awk '{print \$2}'", returnStdout: true).trim()
-                    sh 'echo '${env.lastBuild}''
+                    sh "echo ${env.lastBuild}"
                 }
 //             sh 'pwd' 
 //            sh 'cd /home/user/jenkins/jobs/dockerfile/builds'
