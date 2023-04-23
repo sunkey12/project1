@@ -17,6 +17,8 @@
              steps {
              sh 'pwd' 
              sh 'cd /home/user/jenkins/jobs/dockerfile/builds'
+             sh 'pwd'
+           //  env.lastBuild = sh(script: "cat ${permalinksFile} | grep lastSuccessfulBuild | awk '{print \$2}'", returnStdout: true).trim()
              sh '(script: "cat permalinks  | grep lastSuccessfulBuild | awk '{print $2}'", returnstdout: true).trim()'
          //    sh(script: "cat ${permalinksFile} | grep lastSuccessfulBuild | awk '{print \$2}'", returnStdout: true).trim()
              }
