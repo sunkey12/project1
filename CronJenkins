@@ -20,15 +20,18 @@
                     env.lastBuild = sh(script: "cat ${location} | grep lastSuccessfulBuild | awk '{print \$2}'", returnStdout: true).trim()
                     sh "echo ${env.lastBuild}"
                 }
-//             sh 'pwd' 
-//            sh 'cd /home/user/jenkins/jobs/dockerfile/builds'
-//             sh 'pwd'
-
-           //  env.lastBuild = sh(script: "cat ${permalinksFile} | grep lastSuccessfulBuild | awk '{print \$2}'", returnStdout: true).trim()
-           //  sh '(script: "cat permalinks  | grep lastSuccessfulBuild | awk '{print $2}'", returnstdout: true).trim()'
-           //  sh(script: "cat ${permalinksFile} | grep lastSuccessfulBuild | awk '{print \$2}'", returnStdout: true).trim()
+                
             }
         }
+        
+        stage('Pull_Run') {
+            steps {
+                script {
+                    sh "docker pull arik12/project1:${env.lastBuild}"
+                    sh "docker run arik12/project1:${env.lastBuild}"
+                }
+            }
+         }   
     }
           
 }
