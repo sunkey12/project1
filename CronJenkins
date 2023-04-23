@@ -1,32 +1,32 @@
  pipeline {
-        agent any
+    agent any
    //    triggers {
    //         cron('*/5 * * * *')
    //     }
-         stages {    
-         stage('Dockerlogin') {
+    stages {    
+        stage('Dockerlogin') {
             steps {
-               withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-                      sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
-                      sh 'echo $DOCKERHUB_PASSWORD'
-                      sh 'echo $DOCKERHUB_USERNAME' 
-             }
-           }
-          }
-          stage('Build_Number') {
-             steps {
+                withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+                    sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
+                    sh 'echo $DOCKERHUB_PASSWORD'
+                    sh 'echo $DOCKERHUB_USERNAME' 
+                }
+            }
+        }
+        stage('Build_Number') {
+            steps { 
 //             sh 'pwd' 
 //            sh 'cd /home/user/jenkins/jobs/dockerfile/builds'
 //             sh 'pwd'
-             def location = "home/user/jenkins/jobs/dockerfile/builds"
-             env.lastBuild = sh(script: "cat ${location} | grep lastSuccessfulBuild | awk '{print $2}'", returnStdout: true).trim()
-             echo '$env.lastBuild'
+                def location = "home/user/jenkins/jobs/dockerfile/builds"
+                env.lastBuild = sh(script: "cat ${location} | grep lastSuccessfulBuild | awk '{print $2}'", returnStdout: true).trim()
+                echo '$env.lastBuild'
            //  env.lastBuild = sh(script: "cat ${permalinksFile} | grep lastSuccessfulBuild | awk '{print \$2}'", returnStdout: true).trim()
            //  sh '(script: "cat permalinks  | grep lastSuccessfulBuild | awk '{print $2}'", returnstdout: true).trim()'
-         //    sh(script: "cat ${permalinksFile} | grep lastSuccessfulBuild | awk '{print \$2}'", returnStdout: true).trim()
-             }
-             } 
-          }
+           //  sh(script: "cat ${permalinksFile} | grep lastSuccessfulBuild | awk '{print \$2}'", returnStdout: true).trim()
+            }
+        }
+    }
           
-         }    
+}
         
