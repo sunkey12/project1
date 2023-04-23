@@ -17,7 +17,7 @@
             steps { 
                 script {
                     def location = "home/user/jenkins/jobs/dockerfile/builds"
-                    env.lastBuild = sh(script: "cat ${location} | grep lastSuccessfulBuild | awk '{print $2}'", returnStdout: true).trim()
+                    env.lastBuild = sh(script: "cat ${location} | grep lastSuccessfulBuild | awk '{print \$2}'", returnStdout: true).trim()
                     echo '$env.lastBuild'
                 }
 //             sh 'pwd' 
