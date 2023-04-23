@@ -3,7 +3,7 @@
    //    triggers {
    //         cron('*/5 * * * *')
    //     }
-          
+         stages {    
          stage('Dockerlogin') {
             steps {
                withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
@@ -15,7 +15,8 @@
           }
           stage('Build_Number') {
              steps {
-             sh 'pwd'  
+             sh 'pwd' 
+             }
              } 
           }
           
