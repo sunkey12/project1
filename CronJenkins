@@ -1,18 +1,23 @@
  pipeline {
         agent any
-        triggers {
-            cron('*/5 * * * *')
-        }
+   //    triggers {
+   //         cron('*/5 * * * *')
+   //     }
           
          stage('Dockerlogin') {
             steps {
                withCredentials([usernamePassword(credentialsId: 'docker-cred', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                       sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
                       sh 'echo $DOCKERHUB_PASSWORD'
-                      sh 'echo $DOCKERHUB_USERNAME'  
-
-               }
-                       
+                      sh 'echo $DOCKERHUB_USERNAME' 
              }
+           }
+          }
+          stage('Build_Number') {
+             steps {
+             sh 'pwd'  
+             } 
+          }
+          
          }    
         
