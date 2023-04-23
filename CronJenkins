@@ -16,7 +16,7 @@
         stage('Build_Number') {
             steps { 
                 script {
-                    def location = "/home/user/jenkins/jobs/dockerfile/builds"
+                    def location = "/home/user/jenkins/jobs/dockerfile/builds/permalinks"
                     env.lastBuild = sh(script: "cat ${location} | grep lastSuccessfulBuild | awk '{print \$2}'", returnStdout: true).trim()
                     echo '$env.lastBuild'
                 }
