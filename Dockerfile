@@ -4,6 +4,7 @@ WORKDIR /app
 RUN pip install pylint
 COPY *.py ./
 RUN pylint *.py > check.txt  || exit 0
+RUN cat check.txt
 
 
 FROM python:3.10.0-alpine as building
