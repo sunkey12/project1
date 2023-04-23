@@ -28,7 +28,7 @@
             steps {
                 script {
                     sh "docker pull arik12/project1:${env.lastBuild}"
-                    sh 'docker run -t -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY arik12/project1:${env.lastBuild}'
+                    sh "docker run -t -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY arik12/project1:${env.lastBuild}"
                 }
             }
          }   
