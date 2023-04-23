@@ -16,7 +16,7 @@
           stage('Build_Number') {
              steps {
              sh 'pwd' 
-             sh '/home/user/jenkins/jobs/dockerfile/builds'
+             sh 'cd /home/user/jenkins/jobs/dockerfile/builds'
              sh '
              }
              } 
